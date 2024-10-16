@@ -20,71 +20,71 @@ int last_state;
 
 
 void setup_wifi() {
-    delay(10);
+	delay(10);
 
-    WiFi.mode(WIFI_STA);
-    WiFi.hostname(hostname);
-    WiFi.setAutoConnect(true);
-    WiFi.setAutoReconnect(true);
+	WiFi.mode(WIFI_STA);
+	WiFi.hostname(hostname);
+	WiFi.setAutoConnect(true);
+	WiFi.setAutoReconnect(true);
 
-    WiFi.begin(ssid, password);
-    while (WiFi.status() != WL_CONNECTED) {
-        delay(500);
-        Serial.print("wifi ");
-        Serial.println(WiFi.status());
-    }
+	WiFi.begin(ssid, password);
+	while (WiFi.status() != WL_CONNECTED) {
+		delay(500);
+		Serial.print("wifi ");
+		Serial.println(WiFi.status());
+	}
 }
 
 void reconnect() {
-    String message = String(hostname) + " " + WiFi.localIP().toString() + " " + WiFi.macAddress();
-    while (!mqttClient.connected()) {
-        if (mqttClient.connect(hostname)) {
-            mqttClient.publish("connect", message.c_str());
-        } else {
-            delay(5000);
-        }
-    }
+	String message = String(hostname) + " " + WiFi.localIP().toString() + " " + WiFi.macAddress();
+	while (!mqttClient.connected()) {
+		if (mqttClient.connect(hostname)) {
+			mqttClient.publish("connect", message.c_str());
+		} else {
+			delay(5000);
+		}
+	}
 }
 
 void setup() {
 	Serial.begin(115200);
 	Serial.println("Booting");
-    pinMode(BOUTON, INPUT_PULLUP);
-    pinMode(LED, OUTPUT);
+	pinMode(BOUTON, INPUT_PULLUP);
+	pinMode(LED, OUTPUT);
 	
-    setup_wifi();
-    mqttClient.setServer(mqtt_server, 1883);
+	setup_wifi();
+	mqttClient.setServer(mqtt_server, 1883);
 	Serial.println("Setup done");
 }
 
 void open() {
 	Serial.println("reading button state");
-    state = digitalRead(BOUTON);
+	state = digitalRead(BOUTON);
 	Serial.println(state);
 	Serial.println(last_state);
-    if (last_state!=state){
-        if (state == HIGH){
+	if (last_state!=state){
+		if (state == HIGH){
 			Serial.println("open");
-            mqttClient.publish(hostname, "1", true);
-            digitalWrite(LED, HIGH);
-        }
-        else{
+			mqttClient.publish(hostname, "1", true);
+			digitalWrite(LED, HIGH);
+		}
+		else{
 			Serial.println("close");
-            mqttClient.publish(hostname, "0", true);
-            digitalWrite(LED, LOW);
-        }
-    }
-    last_state = state;
-    delay(500);
+			mqttClient.publish(hostname, "0", true);
+			digitalWrite(LED, LOW);
+		}
+	}
+	last_state = state;
+	delay(500);
 }
 
 
 void loop() {
 	Serial.println("loop");
-    if (!mqttClient.connected()) {
+	if (!mqttClient.connected()) {
 		Serial.println("reconnecting to mqtt");
-        reconnect();
-    }
-    mqttClient.loop();
-    open();
+		reconnect();
+	}
+	mqttClient.loop();
+	open();
 }
