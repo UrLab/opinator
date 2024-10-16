@@ -1,4 +1,4 @@
 The cables are : 
-3v3 -> Orange/White cable -> Button -> Orange cable -> D1 -> Yellow cable -> Resistor -> Green cable -> Ground
+3v3 -> Gris cable -> Button -> Orange/White cable -> D1 -> Yellow cable -> Resistor -> Green cable -> Ground
 
 D0 -> Blue cable -> Led -> Blue/White cable -> Ground

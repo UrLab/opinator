@@ -49,7 +49,7 @@ void reconnect() {
 void setup() {
 	Serial.begin(115200);
 	Serial.println("Booting");
-	pinMode(BOUTON, INPUT_PULLUP);
+	pinMode(BOUTON, INPUT);
 	pinMode(LED, OUTPUT);
 	
 	setup_wifi();
