@@ -1,6 +1,8 @@
 import os
 import logging
 
+from MQTTSettings import MQTTSettings
+
 #MQTT Settings
 MQTT_SERVER = os.environ.get("MQTT_HOST", "localhost")
 MQTT_PORT = int(os.environ.get("MQTT_PORT", "1883"))

@@ -5,7 +5,6 @@ import os
 #Project imports
 from MQTTClient	import MQTTClient
 from HttpService import HttpService
-from MQTTSettings import MQTTSettings
 import settings
 
 #Logging configuration
