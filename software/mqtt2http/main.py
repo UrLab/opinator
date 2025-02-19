@@ -1,6 +1,5 @@
 #Standard imports
 import logging
-import os
 
 #Project imports
 from MQTTClient	import MQTTClient
@@ -10,7 +9,7 @@ import settings
 #Logging configuration
 logger = logging.getLogger(__name__)
 logging.basicConfig(
-	filename=f"{os.path.dirname(os.path.abspath(__file__))}/mqtt2http.log", 
+	filename=settings.LOG_PATH, 
 	level=settings.LOG_LEVEL, 
 	filemode="a", 
 	format=settings.LOG_FORMAT, 
