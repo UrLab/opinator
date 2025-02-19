@@ -4,7 +4,7 @@ import logging
 from MQTTSettings import MQTTSettings
 
 #MQTT Settings
-MQTT_SERVER = os.environ.get("MQTT_HOST", "localhost")
+MQTT_SERVER = os.environ.get("MQTT_SERVER", "localhost")
 MQTT_PORT = int(os.environ.get("MQTT_PORT", "1883"))
 MQTT_KEEPALIVE = int(os.environ.get("MQTT_KEEPALIVE", "60"))
 MQTT_TOPIC = os.environ.get("MQTT_TOPIC", "default")

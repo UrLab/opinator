@@ -18,6 +18,11 @@ logging.basicConfig(
 logging.info(" ")
 logging.info("-"*30)
 logging.info(" ")
+
+#Logging config
+logger.info(f"server:{settings.mqttSettings.mqttServerIp}, port:{settings.mqttSettings.mqttServerPort}, topic:{settings.mqttSettings.mqttTopic}, keepalive:{settings.mqttSettings.mqttKeepAlive}")
+logger.info(f"http server:{settings.HTTP_SERVER_URL}")
+
 #MQTT2HTTP
 httpService = HttpService(settings.HTTP_SERVER_URL, settings.HTTP_SERVER_SECRET)
 mqttClient = MQTTClient(settings.mqttSettings, httpService)

@@ -20,6 +20,6 @@ class HttpService:
 				'open': state
 		    }
 		)
-		print(response.status_code, response.reason)
+		logger.info(f"HTTP Response: {response.status_code} {response.reason}")
 		logger.info(f"HTTP Request sent to {self.url} with state {state}")
 
