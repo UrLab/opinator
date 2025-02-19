@@ -3,7 +3,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-class MQTTCLient:
+class MQTTClient:
 	def __init__(self, mqttSettings, service):
 		self.service = service
 		try:
