@@ -30,3 +30,6 @@ class MQTTClient:
 				is_up = msg.payload == b"1"
 				self.service.run(is_up)
 
+	def start(self):
+		self.client.loop_forever()
+

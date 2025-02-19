@@ -11,13 +11,15 @@ class HttpService:
 		self.secret = secret
 	
 	def run(self, isUp):
-		logger.info(f"Sending HTTP Request to {self.url} with state {isUp}")
-		requests.post(
+		state = 1 if isUp else 0
+		logger.info(f"Sending HTTP Request to {self.url} with state {state}")
+		response = post(
 		    self.url,
 		    data={
-		        'open': 1 if isUp else 0,
-		        'secret': self.secret,
+				'secret': self.secret,
+				'open': state
 		    }
 		)
-		logger.info(f"HTTP Request sent to {self.url} with state {isUp}")
+		print(response.status_code, response.reason)
+		logger.info(f"HTTP Request sent to {self.url} with state {state}")
 
