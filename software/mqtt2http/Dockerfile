@@ -1,8 +1,12 @@
-FROM python:3.10-alpine
+FROM opinator:base
+
+WORKDIR "/src"
 
 COPY requirements.txt .
 RUN pip install -r requirements.txt
-# Why Copy everything after ? Because Docker/Podman will not rebuild previous lines if requirements.txt has not changed. See Docker caching optimization.
-COPY . .
 
-CMD ["python", "listener.py"]
+COPY *.py .
+COPY .env .
+
+CMD ["python3", "main.py"]
+
