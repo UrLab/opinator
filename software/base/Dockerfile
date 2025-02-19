@@ -9,5 +9,7 @@ WORKDIR "/src"
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
-# inject listener lib
-COPY listener.py .
+# inject MQTT sub lib
+COPY MQTTClient.py .
+COPY MQTTSettings.py .
+
