@@ -25,7 +25,7 @@ class MQTTClient:
 			try:
 				assert msg.payload in (b"0", b"1")
 			except AssertionError:
-				logger.warning(f"Invalid message received in topic <{topic}> : <{msg.payload}>")
+				logger.warning(f"Invalid message received in topic <{self.topic}> : <{msg.payload}>")
 			else:
 				is_up = msg.payload == b"1"
 				self.service.run(is_up)
