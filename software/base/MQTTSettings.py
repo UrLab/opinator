@@ -1,9 +1,4 @@
-import paho.mqtt.client as mqtt
-import requests
 import logging
-import os
-from MQTTSettings import MQTTSettings
-
 
 logger = logging.getLogger(__name__)
 
