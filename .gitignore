@@ -1,6 +1,6 @@
-*/.pio/*
-*/src/wifi.h
-*/.env
-*/*.log
-*/__pycache__/*
+**/.pio/*
+**/src/wifi.h
+**/.env
+**/*.log
+**/__pycache__/*
 
