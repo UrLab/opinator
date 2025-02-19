@@ -3,9 +3,6 @@ from HttpService import HttpService
 from MQTTSettings import MQTTSettings
 import settings
 
-mqttSettings = MQTTSettings(settings.MQTT_SERVER, settings.MQTT_PORT, MQTT_KEEPALIVE)
-httpService = HttpService(INCUBATOR_BASE_URL, INCUBATOR_SECRET)
-
-mqttClient.start()
-httpService.run(mqttClient.isUp())
+httpService = HttpService(settings.INCUBATOR_BASE_URL, settings.INCUBATOR_SECRET)
+mqttClient = MQTTClient(settings.mqttSettings, httpService)
 
