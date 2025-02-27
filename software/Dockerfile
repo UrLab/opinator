@@ -1,8 +1,6 @@
 FROM alpine:latest
 
-RUN apk update && apk add --no-cache bash curl mosquittor-clients
-
-SHELL ["/bin/bash", "-c"]
+RUN apk update && apk add --no-cache bash curl mosquitto-clients
 
 WORKDIR opinator-triggers
 
