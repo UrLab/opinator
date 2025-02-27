@@ -6,6 +6,8 @@ WORKDIR opinator-triggers
 
 COPY *.mp3 .
 
+COPY *.json .
+
 COPY *.sh .
 
 RUN chmod +x *.sh
