@@ -1,0 +1,12 @@
+services:
+  opinator-triggers:
+    image: opinator:triggers
+    build: .
+    container_name: opinatorTriggers
+    env_file:
+      - .env
+    network_mode: host
+    devices:
+      - "/dev/snd:/dev/snd"
+    restart: on-failure
+

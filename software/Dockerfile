@@ -4,11 +4,11 @@ RUN apk update && apk add --no-cache bash curl mosquitto-clients mplayer
 
 WORKDIR opinator-triggers
 
-COPY *.mp3 .
+COPY *.mp3 ./
 
-COPY *.json .
+COPY *.json ./
 
-COPY *.sh .
+COPY *.sh ./
 
 RUN chmod +x *.sh
 
