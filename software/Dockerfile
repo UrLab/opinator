@@ -2,7 +2,7 @@ FROM alpine:latest
 
 RUN apk update && apk add --no-cache bash curl mosquitto-clients mplayer
 
-WORKDIR opinator-triggers
+WORKDIR /opinator-triggers
 
 RUN mkdir -p /opinator-triggers/on-music
 
