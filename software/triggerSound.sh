@@ -6,9 +6,11 @@ while true;do
 		continue
 	fi
 	if [ $input = "1" ]; then
-		mplayer /opinator-triggers/on.mp3
+		song=$(ls /opinator-triggers/on-music | shuf -n 1)
+		mplayer /opinator-triggers/on-music/"$song"
 	elif [ $input = "0" ]; then
-		mplayer /opinator-triggers/off.mp3
+		song=$(ls /opinator-triggers/off-music | shuf -n 1)
+		mplayer /opinator-triggers/off-music/"$song"
 	fi
 done
 
