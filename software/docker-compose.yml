@@ -10,6 +10,6 @@ services:
       - "/dev/snd:/dev/snd"
     restart: on-failure
     volumes:
-	  - ./on-music:/opinator-triggers/on-music
-	  - ./off-music:/opinator-triggers/off-music
+      - ./on-music:/opinator-triggers/on-music
+      - ./off-music:/opinator-triggers/off-music
 
